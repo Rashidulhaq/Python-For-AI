@@ -1,4 +1,4 @@
-# palindrom check number MOM
+# palindrom check number MOM, MADAM
 def pal(s):
     if len(s) <=1 :
         return True
