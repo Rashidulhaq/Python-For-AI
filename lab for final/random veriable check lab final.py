@@ -1,41 +1,23 @@
+import random
 
-import numpy as np
 
-l = np.array([[0, 0], [0, 1], [1, 0], [1, 1]])
+def fx(x):
+#fx(x) = int(input("rr"))
+    return (x * x) - (5 * x) + 6
 
-label = np.array([0, 1, 1, 1])
 
-w = [1, 0.5]
-theta = 0.5
-learning = 0.1
-n = -1
-epoch = 5
+result = None
+count = 0
 
-for j in range(0, epoch):
-    for i in range(0, l.shape[0]):
-        actual = label[i]
-        instance = l[i]
+while result != 0:
+    # Generate a random number between -10 and 10
+    num = random.randint(-10, 10)
+    print("Generated number:", num)
 
-        x1 = instance[0]
-        x2 = instance[1]
+    # Calculate the result of f(x)
+    result = fx(num)
+    print("f(x) result:", result)
 
-        net = w[0] * x1 + w[1] * x2 - theta
+    count += 1
 
-        if net > 0:
-            y = 1
-        else:
-            y = 0
-        delta = actual - y
-
-        if delta != 0:
-            w[0] = w[0] + learning * delta * x1
-            w[1] = w[1] + learning * delta * x2
-            theta = n * delta * learning + theta
-
-        print("calculate value", y, "actual value", delta)
-
-    print("Y=", y, "T-Y=", delta)
-print("---------------")
-
-print(w)
-print(theta)
+print("Zero was generated after", count, "iterations.")
